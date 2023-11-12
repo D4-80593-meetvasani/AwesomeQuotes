@@ -1,0 +1,50 @@
+CREATE TABLE Users (
+  id INT NOT NULL AUTO_INCREMENT,
+  first_name VARCHAR(255) NOT NULL,
+  last_name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  mobile VARCHAR(255) NOT NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE Quotes (
+  id INT NOT NULL AUTO_INCREMENT,
+  text VARCHAR(255) NOT NULL,
+  author VARCHAR(255) NOT NULL,
+  user_id INT NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES Users(id),
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE FavoriteQuotes (
+  user_id INT NOT NULL,
+  quote_id INT NOT NULL,
+  PRIMARY KEY (user_id, quote_id),
+  FOREIGN KEY (user_id) REFERENCES Users(id),
+  FOREIGN KEY (quote_id) REFERENCES Quotes(id)
+);
+
+
+INSERT INTO Users (first_name, last_name, email, password, mobile)
+VALUES ('Steve Jobs', 'Jobs', 'stevejobs@apple.com', 'password123', '+15555555555'),
+('Vijay Gokhale', 'Gokhale', 'vijaygokhale@example.com', 'password456', '+918888888888'),
+('Dalai Lama', 'Lama', 'dalailama@tibet.net', 'password789', '+919999999999'),
+('Nelson Mandela', 'Mandela', 'nelsonmandela@sa.gov', 'password101112', '+27111111111');
+
+INSERT INTO Quotes (text, author, user_id)
+VALUES ('Stay hungry, Stay foolish!', 'Steve Jobs', 1),
+('Innovation distinguishes between a leader and a follower.', 'Steve Jobs', 1),
+('Design is not just what it looks like and feels like. Design is how it works.', 'Steve Jobs', 1),
+('We hire people who want to make the best things in the world.', 'Steve Jobs', 1),
+('Knowledge is inter-related!', 'Vijay Gokhale', 2),
+('The purpose of our lives is to be happy.', 'Dalai Lama', 2),
+('It always seems impossible until it's done.', 'Nelson Mandela', 2),
+('The time is always right to do what is right.', 'Martin Luther King Jr', 2);
+
+INSERT INTO FavoriteQuotes (user_id, quote_id)
+VALUES (5, 2),
+(5, 4),
+(5, 11),
+(6, 13),
+(6, 18);
