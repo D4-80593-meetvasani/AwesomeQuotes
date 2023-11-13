@@ -1,0 +1,45 @@
+Awesome Quotes
+Use Case Diagram
+UI design
+Console application
+
+
+User menu (Before authentication):
+0. Exit
+1. Sign In
+2. Sign Up
+User menu (After authentication):
+0. Sign Out
+1. All Quotes
+2. My Quotes
+3. My Favorite Quotes
+4. Like/Unlike Quote
+5. New Quote
+6. Edit Quote
+7. Delete Quote
+8. Change Password
+9. Edit Proﬁle
+Refer screenshots for expected operations under each menu.
+Database design
+Diagram below may be used as a reference.
+You can use File IO as appropriate.
+
+
+Technologies/Platforms Used
+Application Type: Console application
+Database: File IO
+Programming language: Choose any one language as per your course curriculum.
+C/C++
+Python
+Java
+Notes
+Unauthenticated user should not see the user menu options. (i.e. All Quotes, My Quotes, etc.)
+Authenticated user should not see main menu (i.e. Exit, Sign In, etc.)
+User can like (favorite) or unlike (unfavorite) quotes inserted by other users. User cannot like/unlike his own quotes.
+Each user should have his separate set of
+User can edit/delete his own quotes only. He should not be able to edit/delete quote by other users.
+User should not be able to enter empty ﬁelds (ﬁrst name, last name, email, password, mobile, quote text, author, etc).
+Validations of email, password format is optional.
+User and quote id for new quotes can be auto-generated. Hint: last inserted id + 1.
+When a quote is deleted by a user, it should also be removed from other user favorites.
+Evaluation
